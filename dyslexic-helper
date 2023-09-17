@@ -1,0 +1,31 @@
+import javax.swing.*;  
+import java.awt.*;
+
+public class DyslexiaFriendlyTextTool {
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            createAndShowGUI();
+        });
+    }
+
+    private static void createAndShowGUI() {
+        JFrame frame = new JFrame("Dyslexia-Friendly Text Tool");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(400, 200);
+
+        JPanel panel = new JPanel();
+        panel.setLayout(new BorderLayout());
+
+        JTextArea textArea = new JTextArea();
+        textArea.setFont(new Font("OpenDyslexic", Font.PLAIN, 14)); // Use a dyslexia-friendly font
+        textArea.setBackground(new Color(255, 255, 255)); // Use an off-white background color
+        textArea.setLineWrap(true);
+        textArea.setWrapStyleWord(true);
+
+        JScrollPane scrollPane = new JScrollPane(textArea);
+        panel.add(scrollPane, BorderLayout.CENTER);
+
+        frame.getContentPane().add(panel);
+        frame.setVisible(true);
+    }
+}
